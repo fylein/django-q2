@@ -489,7 +489,8 @@ def async_chain(chain, group=None, cached=Conf.CACHED, sync=Conf.SYNC, broker=No
     kwargs["group"] = group
     kwargs["cached"] = cached
     kwargs["sync"] = sync
-    kwargs["broker"] = broker or get_broker()
+    #below line assigns default cluster instead of alt cluster
+    # kwargs["broker"] = broker or get_broker()
     async_task(task[0], *args, **kwargs)
     return group
 
