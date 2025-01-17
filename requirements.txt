@@ -11,3 +11,7 @@ six==1.17.0
 sqlparse==0.5.3
 typing-extensions==4.12.2
 wcwidth==0.2.13
+pytest==8.3.4
+pytest-cov==6.0.0
+pytest-django==4.9.0
+pytest-mock==3.14.0
