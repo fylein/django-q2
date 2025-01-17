@@ -26,16 +26,7 @@ from django_q.tests.testing_utilities.multiple_database_routers import (
 )
 from django_q.utils import add_months, localtime
 from django_q.worker import worker
-
-if django.VERSION < (4, 0):
-    # pytz is the default in django 3.2. Remove when no support for 3.2
-    from pytz import timezone as ZoneInfo
-else:
-    try:
-        from zoneinfo import ZoneInfo
-    except ImportError:
-        from backports.zoneinfo import ZoneInfo
-
+from zoneinfo import ZoneInfo
 
 @pytest.fixture
 def broker(monkeypatch) -> Broker:

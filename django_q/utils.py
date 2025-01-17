@@ -8,15 +8,7 @@ from django.conf import settings
 from django.utils import timezone
 
 from django_q.conf import Conf, logger
-
-if django.VERSION < (4, 0):
-    # pytz is the default in django 3.2. Remove when no support for 3.2
-    from pytz import timezone as ZoneInfo
-else:
-    try:
-        from zoneinfo import ZoneInfo
-    except ImportError:
-        from backports.zoneinfo import ZoneInfo
+from zoneinfo import ZoneInfo
 
 
 # credits: https://stackoverflow.com/a/4131114
@@ -60,18 +52,16 @@ def get_func_repr(func):
 def localtime(value=None) -> datetime:
     """Override for timezone.localtime to deal with naive times and local times"""
     if settings.USE_TZ:
-        if django.VERSION >= (4, 0) and getattr(settings, "USE_DEPRECATED_PYTZ", False):
-            import pytz
-
-            convert_to_tz = pytz.timezone(Conf.TIME_ZONE)
-        else:
-            convert_to_tz = ZoneInfo(Conf.TIME_ZONE)
-
+        # Use ZoneInfo for timezone handling
+        convert_to_tz = ZoneInfo(Conf.TIME_ZONE)
         return timezone.localtime(value=value, timezone=convert_to_tz)
+    
+    # Handle naive times when USE_TZ is False
     if value is None:
         return datetime.now()
     else:
         return value
+
 
 
 def close_old_django_connections():

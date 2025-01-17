@@ -1,8 +1,6 @@
 import django
 
-VERSION = (1, 6, 1)
+VERSION = (4, 2, 18)
 
-if django.VERSION < (3, 2):
-    default_app_config = "django_q.apps.DjangoQConfig"
-
+# No need for default_app_config in Django >= 3.2
 __all__ = ["conf", "cluster", "models", "tasks"]
