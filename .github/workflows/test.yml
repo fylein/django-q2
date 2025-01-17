@@ -49,7 +49,7 @@ jobs:
             pip install "django==${{ matrix.django }}" -r requirements.txt
         - name: Run Tests
           run: |
-            pytest --cov=./django_q --cov-report=xml
+            pytest
           env:
             MONGO_HOST: "127.0.0.1"
             REDIS_HOST: "127.0.0.1"
