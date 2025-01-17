@@ -12,10 +12,7 @@ jobs:
     strategy:
       matrix:
         python-version: [ "3.10" ]
-        django: [ "4.2"]
-        exclude:
-          - python-version: "3.10"
-            django: "4.2"
+        django: [ "4.2" ]
 
     services:
       disque:
@@ -34,7 +31,6 @@ jobs:
           POSTGRES_DB: postgres
         ports:
           - 5432:5432
-        # needed because the postgres container does not provide a health check
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
       redis:
         image: redis
@@ -50,11 +46,10 @@ jobs:
         - name: Install dependencies with Django ${{ matrix.django }}
           run: |
             python -m pip install --upgrade pip
-            pip install poetry
-            pip install -r requirements.txt
+            pip install "django==${{ matrix.django }}" -r requirements.txt
         - name: Run Tests
           run: |
-            poetry run pytest --cov=./django_q --cov-report=xml
+            pytest --cov=./django_q --cov-report=xml
           env:
             MONGO_HOST: "127.0.0.1"
             REDIS_HOST: "127.0.0.1"
