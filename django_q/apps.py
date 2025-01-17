@@ -4,7 +4,7 @@ from django_q.conf import Conf
 
 
 class DjangoQConfig(AppConfig):
-    name = "django_q"
+    name = "apps.django_q"
     verbose_name = Conf.LABEL
     default_auto_field = "django.db.models.AutoField"
 
