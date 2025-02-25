@@ -8,7 +8,7 @@ with open('README.rst', 'r') as f:
 
 setuptools.setup(
     name='fyle-djangoq2',
-    version='2.0.0',
+    version='2.0.1',
     author='Rushikesh',
     author_email='rushikesh.t@fyle.in',
     description='Python SDK for Django Q2',
