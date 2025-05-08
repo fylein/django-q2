@@ -15,7 +15,7 @@ tomli==2.0.1
 alabaster==0.7.13
 babel==2.15.0
 coverage==7.5.1
-django==4.2.20
+django==4.2.21
 docutils==0.17.1
 imagesize==1.4.1
 jinja2==3.1.6 
