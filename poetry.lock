@@ -947,7 +947,10 @@ h2 = ["h2 (>=4,<5)"]
 socks = ["pysocks (>=1.5.6,!=1.5.7,<2.0)"]
 zstd = ["zstandard (>=0.18.0)"]
 
+[extras]
+testing = []
+
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.10"
-content-hash = "df5be3f9752bc9ae90b8262be12fd5f528a10a7305387c1aa8ee01c19e275215"
+content-hash = "5ff0e1654f4332444353732718563b4dd2f21dea724eadc681c6359f0a536798"
