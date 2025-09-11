@@ -1473,4 +1473,4 @@ testing = ["blessed", "croniter", "django-redis", "hiredis", "psutil", "pymongo"
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.10"
-content-hash = "8aef15c233217eea0624f12e9a15332b3299b0afa3794561a2906a7173f64cce"
+content-hash = "884e69bb732165e6ed41ff9d5d953a1756643717b8c4dd2b80fae5438e253e25"
