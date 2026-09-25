@@ -10,12 +10,12 @@ markupsafe==2.1.5
 packaging==25.0
 pluggy==1.5.0
 requests==2.33.0
-sqlparse==0.5.4
+sqlparse==0.6.0
 tomli==2.0.1
 alabaster==0.7.13
 babel==2.15.0
 coverage==7.5.1
-django==4.2.30
+django==5.2.17
 docutils==0.17.1
 imagesize==1.4.1
 jinja2==3.1.6 
